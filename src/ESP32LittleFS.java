@@ -65,7 +65,7 @@ public class ESP32LittleFS implements Tool {
 
 
   public String getMenuTitle() {
-    return "ESP32 LittleFS Data Upload";
+    return "ESP32S2 LittleFS Data Upload";
   }
 
   private int listenOnProcess(String[] arguments){
@@ -376,9 +376,9 @@ public class ESP32LittleFS implements Tool {
       System.out.println("[LITTLEFS] freq   : "+flashFreq);
       System.out.println();
       if(esptool.getAbsolutePath().endsWith(".py"))
-        sysExec(new String[]{pythonCmd, esptool.getAbsolutePath(), "--chip", "esp32", "--baud", uploadSpeed, "--port", serialPort, "--before", "default_reset", "--after", "hard_reset", "write_flash", "-z", "--flash_mode", flashMode, "--flash_freq", flashFreq, "--flash_size", "detect", ""+spiStart, imagePath});
+        sysExec(new String[]{pythonCmd, esptool.getAbsolutePath(), "--chip", "esp32s2", "--baud", uploadSpeed, "--port", serialPort, "--before", "default_reset", "--after", "hard_reset", "write_flash", "-z", "--flash_mode", flashMode, "--flash_freq", flashFreq, "--flash_size", "detect", ""+spiStart, imagePath});
       else
-        sysExec(new String[]{esptool.getAbsolutePath(), "--chip", "esp32", "--baud", uploadSpeed, "--port", serialPort, "--before", "default_reset", "--after", "hard_reset", "write_flash", "-z", "--flash_mode", flashMode, "--flash_freq", flashFreq, "--flash_size", "detect", ""+spiStart, imagePath});
+        sysExec(new String[]{esptool.getAbsolutePath(), "--chip", "esp32s2", "--baud", uploadSpeed, "--port", serialPort, "--before", "default_reset", "--after", "hard_reset", "write_flash", "-z", "--flash_mode", flashMode, "--flash_freq", flashFreq, "--flash_size", "detect", ""+spiStart, imagePath});
     }
   }
 
