@@ -19,14 +19,14 @@ echo "lib_path: $lib_path"
 set -e
 
 mkdir -p bin
-javac -target 1.8 -cp "$pde_path:$core_path:$lib_path" \
+javac -target 1.8 -source 1.8 -cp "$pde_path:$core_path:$lib_path" \
       -d bin src/ESP32LittleFS.java
 
 pushd bin
 mkdir -p $INSTALLDIR/tools
 rm -rf $INSTALLDIR/tools/ESP32LittleFS
 mkdir -p $INSTALLDIR/tools/ESP32LittleFS/tool
-zip -r $INSTALLDIR/tools/ESP32LittleFS/tool/esp32littlefs.jar *
+zip -r $INSTALLDIR/tools/ESP32LittleFS/tool/esp32s2littlefs.jar *
 popd
 
 dist=$PWD/dist
